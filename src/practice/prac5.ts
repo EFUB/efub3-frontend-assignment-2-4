@@ -1,3 +1,5 @@
+type IsStringType<T> = T extends string ? string[] : number[];
+
 type T1 = IsStringType<string>;
 type T2 = IsStringType<number>;
 

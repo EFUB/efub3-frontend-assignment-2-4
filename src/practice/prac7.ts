@@ -5,11 +5,15 @@ interface Todo {
   createdAt: number;
 }
 
-const todo: TodoPreview = {
+type TodoPreview1 = Omit<Todo, "description">;
+
+const todo1: TodoPreview = {
   title: "Clean room",
   completed: false,
   createdAt: 1304928340,
 };
+
+type TodoInfo = Omit<Todo, "completed" | "createdAt">;
 
 const todoInfo: TodoInfo = {
   title: "Pick up kids",

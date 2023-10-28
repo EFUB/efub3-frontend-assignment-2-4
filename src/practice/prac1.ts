@@ -1,7 +1,7 @@
 class Developer {
-  name: string; // 어디서든 접근 가능한 접근 제어자 설정
-  age: number; // 클래스 내부와 파생 클래스에서 접근 가능한 접근 제어자 설정
-  position: string; // 클래스 내부에서만 접근 가능한 접근 제어자 설정
+  public name: string; // 어디서든 접근 가능한 접근 제어자 설정
+  protected age: number; // 클래스 내부와 파생 클래스에서 접근 가능한 접근 제어자 설정
+  private position: string; // 클래스 내부에서만 접근 가능한 접근 제어자 설정
 
   constructor(name: string, age: number, position: string) {
     this.name = name;
@@ -12,6 +12,20 @@ class Developer {
   sayHi() {
     console.log(
       `저는 ${this.age}살이고 이름은 ${this.name}입니다. 포지션은 ${this.position}입니다`
+    );
+  }
+}
+
+class FrontendDeveloper extends Developer {
+  protected react: boolean;
+  constructor(name: string, age: number, position: string, react: boolean) {
+    super(name, age, position);
+    this.react = react;
+  }
+
+  func() {
+    console.log(
+      `저는 ${this.age}살이고 이름은 ${this.name}입니다. ${this.react}`
     );
   }
 }
