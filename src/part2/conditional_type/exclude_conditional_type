@@ -1,0 +1,13 @@
+type Exclude_<T, U> = T extends U ? never : T;
+type A_ = Exclude_<number | string | boolean, string>;
+
+// infer: 조건부 타입 내에서 특정 타입 추론
+type ReturnType_<T> = T extends () => infer R ? R : never;
+type FuncA = () => string;
+type FuncB = () => number;
+type A__ = ReturnType_<FuncA>;
+type B__ = ReturnType_<FuncB>;
+type C = ReturnType_<number>;
+type PromiseUnpack<T> = T extends Promise<infer R> ? R : never;
+type PromiseA = PromiseUnpack<Promise<number>>;
+type PromiseB = PromiseUnpack<Promise<string>>;
