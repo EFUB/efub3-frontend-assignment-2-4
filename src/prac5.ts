@@ -1,4 +1,3 @@
-//제네릭이 string이면 문자열 배열, 아니면 넘버 배열
 type IsStringType<T> = T extends string ? string[] : number[];
 
 type T1 = IsStringType<string>;
